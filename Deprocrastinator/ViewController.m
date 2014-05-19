@@ -60,14 +60,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    if([self.editButton.currentTitle isEqualToString:@"Edit"])
+    if([self.editButton.currentTitle isEqualToString:@"Done"])
     {
-    selectedCell.textLabel.textColor = [UIColor greenColor];
-    }
-    else
         [self.toDoArray removeObjectAtIndex:indexPath.row];
         [tableView reloadData];
+    }
 }
 
 
@@ -96,7 +93,31 @@
 
             [self.toDoTableView reloadData];
         }
+    }
+
+    if (swipeGestureRecognizer.direction == UISwipeGestureRecognizerDirectionRight) {
+        NSLog(@"YOU SWIPED RIGHT");
+
+        if (swipeGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+            CGPoint swipeLocation = [swipeGestureRecognizer locationInView:self.toDoTableView];
+            NSIndexPath *swipeIndex = [self.toDoTableView indexPathForRowAtPoint:swipeLocation];
+
+            UITableViewCell *swipedCell = [self.toDoTableView cellForRowAtIndexPath:swipeIndex];
+            if (swipedCell.textLabel.textColor == [UIColor blackColor]) {
+                swipedCell.textLabel.textColor = [UIColor greenColor];
             }
-    NSLog(@"Swiped");
+            else if (swipedCell.textLabel.textColor == [UIColor greenColor]) {
+                swipedCell.textLabel.textColor = [UIColor yellowColor];
+            }
+            else if (swipedCell.textLabel.textColor == [UIColor yellowColor]) {
+                swipedCell.textLabel.textColor = [UIColor redColor];
+            }
+            else if (swipedCell.textLabel.textColor == [UIColor redColor]) {
+                swipedCell.textLabel.textColor = [UIColor blackColor];
+            }
+
+            [self.toDoTableView reloadData];
+        }
+    }
 }
 @end
