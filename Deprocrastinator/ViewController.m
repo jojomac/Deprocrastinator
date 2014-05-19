@@ -33,16 +33,28 @@
     if([editButton.currentTitle isEqualToString:@"Edit" ])
     {
     [editButton setTitle:@"Done" forState:UIControlStateNormal];
+        [self.toDoTableView setEditing:YES animated:YES];
     }
     else if([editButton.currentTitle isEqualToString:@"Done" ])
     {
         [editButton setTitle:@"Edit" forState:UIControlStateNormal];
-
+        [self.toDoTableView setEditing:NO animated:NO];
     }
+
 
 
 }
 
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+        if([self.editButton.currentTitle isEqualToString:@"Done" ])
+        {
+            NSString *stringToMove = [self.toDoArray objectAtIndex:sourceIndexPath.row];
+            [self.toDoArray removeObjectAtIndex:sourceIndexPath.row];
+            [self.toDoArray insertObject:stringToMove atIndex:destinationIndexPath.row];
+
+        }
+}
 #pragma mark - Table Delegate Methods
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
