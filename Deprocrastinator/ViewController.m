@@ -8,22 +8,79 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
-
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UITextField *inputTextField;
+@property NSMutableArray *toDoArray;
+@property (weak, nonatomic) IBOutlet UITableView *toDoTableView;
 @end
 
 @implementation ViewController
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	self.toDoArray = [NSMutableArray arrayWithObjects:@"Ignore Don",
+                      @"Buy Kevin Lunch",
+                      @"Maker the early train",
+                      @"Don't sleep in tomorrow", nil];
 }
-
-- (void)didReceiveMemoryWarning
+- (IBAction)onEditButtonPressed:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIButton *editButton = sender;
+    if([editButton.currentTitle isEqualToString:@"Edit" ])
+    {
+    [editButton setTitle:@"Done" forState:UIControlStateNormal];
+    }
+    else if([editButton.currentTitle isEqualToString:@"Done" ])
+    {
+        [editButton setTitle:@"Edit" forState:UIControlStateNormal];
+
+    }
+
+
 }
 
+#pragma mark - Table Delegate Methods
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.toDoArray.count;
+}
+
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ToDoCell"];
+    cell.textLabel.text = [self.toDoArray objectAtIndex:indexPath.row];
+
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    if([self.editButton.currentTitle isEqualToString:@"Edit"])
+    {
+    selectedCell.textLabel.textColor = [UIColor greenColor];
+    }
+    else
+        [self.toDoArray removeObjectAtIndex:indexPath.row];
+        [tableView reloadData];
+}
+
+
+#pragma mark - Helper Methods
+
+- (IBAction)onAddButtonPressed:(id)sender
+{
+    NSString *nextToDoItem = self.inputTextField.text;
+    [self.toDoArray addObject:nextToDoItem];
+    [self.inputTextField resignFirstResponder];
+    self.inputTextField.text = @"";
+
+    [self.toDoTableView reloadData];
+    
+}
 @end

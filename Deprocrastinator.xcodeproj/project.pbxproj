@@ -21,7 +21,7 @@
 		DC669A97192A868F004828B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC669A79192A868F004828B9 /* UIKit.framework */; };
 		DC669A9F192A868F004828B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC669A9D192A868F004828B9 /* InfoPlist.strings */; };
 		DC669AA1192A868F004828B9 /* DeprocrastinatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC669AA0192A868F004828B9 /* DeprocrastinatorTests.m */; };
-		DC669AAB192A86C3004828B9 /* CheckMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC669AAA192A86C3004828B9 /* CheckMate.framework */; };
+		DC669AAF192A9FFF004828B9 /* CheckMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC669AAE192A9FFF004828B9 /* CheckMate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		DC669A9C192A868F004828B9 /* DeprocrastinatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DeprocrastinatorTests-Info.plist"; sourceTree = "<group>"; };
 		DC669A9E192A868F004828B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DC669AA0192A868F004828B9 /* DeprocrastinatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeprocrastinatorTests.m; sourceTree = "<group>"; };
-		DC669AAA192A86C3004828B9 /* CheckMate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CheckMate.framework; path = ../../CheckMate.framework; sourceTree = "<group>"; };
+		DC669AAE192A9FFF004828B9 /* CheckMate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CheckMate.framework; path = ../../CheckMate.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC669AAB192A86C3004828B9 /* CheckMate.framework in Frameworks */,
+				DC669AAF192A9FFF004828B9 /* CheckMate.framework in Frameworks */,
 				DC669A78192A868F004828B9 /* CoreGraphics.framework in Frameworks */,
 				DC669A7A192A868F004828B9 /* UIKit.framework in Frameworks */,
 				DC669A76192A868F004828B9 /* Foundation.framework in Frameworks */,
@@ -104,7 +104,7 @@
 		DC669A74192A868F004828B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DC669AAA192A86C3004828B9 /* CheckMate.framework */,
+				DC669AAE192A9FFF004828B9 /* CheckMate.framework */,
 				DC669A75192A868F004828B9 /* Foundation.framework */,
 				DC669A77192A868F004828B9 /* CoreGraphics.framework */,
 				DC669A79192A868F004828B9 /* UIKit.framework */,
@@ -383,6 +383,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/joanne.mcnamee/Desktop,
+					/Users/joanne.mcnamee/Downloads,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Deprocrastinator/Deprocrastinator-Prefix.pch";
@@ -400,6 +401,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/joanne.mcnamee/Desktop,
+					/Users/joanne.mcnamee/Downloads,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Deprocrastinator/Deprocrastinator-Prefix.pch";
