@@ -83,4 +83,20 @@
     [self.toDoTableView reloadData];
     
 }
+
+- (IBAction)onSwipeGesture:(UISwipeGestureRecognizer *)swipeGestureRecognizer
+{
+
+    if ([self.editButton.currentTitle isEqualToString:@"Done"]) {
+
+        if (swipeGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+            CGPoint swipeLocation = [swipeGestureRecognizer locationInView:self.toDoTableView];
+            NSIndexPath *swipeIndex = [self.toDoTableView indexPathForRowAtPoint:swipeLocation];
+            [self.toDoArray removeObjectAtIndex:swipeIndex.row];
+
+            [self.toDoTableView reloadData];
+        }
+            }
+    NSLog(@"Swiped");
+}
 @end
