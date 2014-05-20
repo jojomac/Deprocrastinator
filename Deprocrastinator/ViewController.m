@@ -24,7 +24,7 @@
     [super viewDidLoad];
 	self.toDoArray = [NSMutableArray arrayWithObjects:@"Ignore Don",
                       @"Buy Kevin Lunch",
-                      @"Maker the early train",
+                      @"Make the early train",
                       @"Don't sleep in tomorrow", nil];
 }
 - (IBAction)onEditButtonPressed:(id)sender
